@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#b3121b" stroke="#f4b52c" stroke-width="4"/>
+  <!-- slab-serif "T", drop shadow then face -->
+  <g transform="translate(0 2.5)" fill="#6e0b10">
+    <path d="M13 14h38v12h-4l-2-5h-8v25l5 2v4H22v-4l5-2V21h-8l-2 5h-4z"/>
+  </g>
+  <path d="M13 14h38v12h-4l-2-5h-8v25l5 2v4H22v-4l5-2V21h-8l-2 5h-4z" fill="#fff"/>
+</svg>
