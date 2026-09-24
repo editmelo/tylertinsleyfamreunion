@@ -235,7 +235,7 @@
   /* ---------- where from ---------- */
   .states{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:44px}
   .state{
-    width:136px;background:#fff;border-radius:16px;padding:18px 10px 16px;text-align:center;
+    width:122px;background:#fff;border-radius:16px;padding:18px 10px 16px;text-align:center;
     box-shadow:var(--shadow);border-top:8px solid var(--red);position:relative;transition:transform .2s;
   }
   .state:nth-child(even){border-top-color:var(--sky-deep)}
@@ -250,6 +250,8 @@
   .state span{font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:.08em}
   .state.home{outline:3px solid var(--gold);outline-offset:4px}
   .state.home small{display:block;font-family:'Yellowtail';font-size:1.1rem;color:var(--red);margin-top:2px}
+  .state.abroad{outline:3px solid var(--sky-deep);outline-offset:4px}
+  .state.abroad small{display:block;font-family:'Yellowtail';font-size:1.1rem;color:var(--sky-deep);margin-top:2px}
   .states-count{margin-top:40px;font-family:'Yellowtail';font-size:clamp(1.8rem,4.5vw,2.6rem);color:var(--red);text-align:center;line-height:1.2}
 
   /* ---------- the stay ---------- */
@@ -336,6 +338,9 @@
   .btn-outline:hover{background:#fff;color:var(--red)}
   .cashtag{display:block;margin-top:14px;font-weight:800;color:#fff;opacity:.95}
   .cashtag a{color:var(--gold-light)}
+  .no-cashapp{margin-top:18px;background:rgba(0,0,0,.18);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+  .no-cashapp b{color:var(--gold-light);font-size:1.02rem}
+  .no-cashapp span{font-size:.95rem}
   .guest-card{
     background:#fff;border-radius:24px;padding:36px 32px;box-shadow:var(--shadow);border:3px solid var(--maroon);
     display:flex;flex-direction:column;justify-content:center;text-align:center;
@@ -443,6 +448,7 @@
     .milestones{grid-template-columns:repeat(2,1fr)}
     .goal-card,.ticket,.guest-card{padding:28px 20px}
     .ticket-inner{padding:22px 14px}
+    .ticket .btn-cream{font-size:.9rem;padding:14px 18px;white-space:nowrap}
     .stay-grid{grid-template-columns:1fr;grid-auto-rows:210px}
     .s-big,.s-wide{grid-column:auto;grid-row:auto}
     .polaroids{height:340px}
@@ -450,7 +456,7 @@
     .state{width:calc(25% - 8px);padding:14px 2px 12px;border-top-width:6px}
     .state b{font-size:1.45rem}
     .state span{font-size:.58rem;letter-spacing:.02em}
-    .state.home small{font-size:.85rem}
+    .state.home small,.state.abroad small{font-size:.85rem}
     .memories{grid-template-columns:1fr}
     .officers{grid-template-columns:1fr}
     .committee{gap:12px}
@@ -585,8 +591,8 @@
 <section id="from" class="pad">
   <div class="wrap center">
     <span class="eyebrow reveal">Where We're Coming From</span>
-    <h2 class="h2 reveal">From Coast <span class="script">to Coast</span></h2>
-    <p class="lead reveal">The Tyler-Tinsley family is spread across the country, and every June we find our way back to each other.</p>
+    <h2 class="h2 reveal">Coast to Coast <span class="script">&amp; Beyond</span></h2>
+    <p class="lead reveal">The Tyler-Tinsley family is spread across the country and all the way to Paris, and every June we find our way back to each other.</p>
 
     <div class="states reveal">
       <div class="state home"><b>IN</b><span>Indiana</span><small>home base</small></div>
@@ -596,8 +602,9 @@
       <div class="state"><b>KY</b><span>Kentucky</span></div>
       <div class="state"><b>NY</b><span>New York</span></div>
       <div class="state"><b>AZ</b><span>Arizona</span></div>
+      <div class="state abroad"><b>FR</b><span>Paris</span><small>overseas</small></div>
     </div>
-    <p class="states-count reveal">7 states · 1 family · 1 weekend</p>
+    <p class="states-count reveal">7&nbsp;states + Paris · 1&nbsp;family · 1&nbsp;weekend</p>
   </div>
 </section>
 
@@ -673,6 +680,10 @@
             <a href="https://cash.app/pay/link/mz62atg9" target="_blank" rel="noopener" class="btn btn-outline">Make a Payment</a>
           </div>
           <span class="cashtag">or send to <a href="https://cash.app/$Tytireunion" target="_blank" rel="noopener">$Tytireunion</a> · please put your name in the note</span>
+          <div class="no-cashapp">
+            <b>No Cash App? No problem.</b>
+            <span>Find a family member who has Cash App and send them your dues any way they'll accept. They'll send it to Cash App for you. Just make sure your name is on it!</span>
+          </div>
         </div>
       </div>
 
@@ -744,7 +755,7 @@
     <span class="soon-link">Family Bylaws (coming soon)</span>
     <a href="#home">Back to Top ↑</a>
   </div>
-  <small>Indiana · Ohio · California · Georgia · Kentucky · New York · Arizona</small>
+  <small>Indiana · Ohio · California · Georgia · Kentucky · New York · Arizona · Paris</small>
 </footer>
 
 <script>
