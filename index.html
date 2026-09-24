@@ -755,21 +755,21 @@
      ========================================================== */
   const FUND_PERCENT = 26;
   /* COMMITTEE: add phone numbers as 'phone' (e.g. '317-555-1234').
-     Leave phone empty ('') to show "Number coming soon". officer:true = top row. */
+     Leave phone empty ('') to show "Number coming soon". officer:true = top row. Members are sorted A-Z by first name automatically. */
   const COMMITTEE = [
     { name:'Amariah Brown',    role:'CEO',    phone:'317-313-6409', officer:true },
     { name:'Lauran Offutt',    role:'COO',    phone:'317-985-5407', officer:true },
     { name:'Lauren Dickerson', role:'CFO',    phone:'317-809-3928', officer:true },
+    { name:'Alfie McGinty',    role:'Member', phone:'' },
+    { name:'Dwayne Tyler',    role:'Member', phone:'' },
+    { name:'Gary Offutt',      role:'Member', phone:'' },
+    { name:'India Tyler',      role:'Member', phone:'' },
+    { name:'Jalen',            role:'Member', phone:'' },
+    { name:'Lacy Tyler',       role:'Member', phone:'' },
     { name:'Latonja Saffold',  role:'Member', phone:'' },
     { name:'Nakia Price',      role:'Member', phone:'' },
-    { name:'Gary Offutt',      role:'Member', phone:'' },
-    { name:'Jalen',            role:'Member', phone:'' },
-    { name:'Queenasia Tyler',  role:'Member', phone:'' },
-    { name:'Alfie McGinty',    role:'Member', phone:'' },
-    { name:'Lacy Tyler',       role:'Member', phone:'' },
-    { name:'India Tyler',      role:'Member', phone:'' },
     { name:'Pookie Tyler',     role:'Member', phone:'' },
-    { name:'Dwayne Tyler',    role:'Member', phone:'' },
+    { name:'Queenasia Tyler',  role:'Member', phone:'' },
   ];
   const REUNION_TARGET = new Date('2027-06-01T00:00:00'); // change to the Friday once dates are set
 
@@ -805,7 +805,7 @@
       return `<div class="member"><div class="avatar">${esc(initials)}</div><div class="name">${esc(m.name)}</div><div class="role">${esc(m.role)}</div>${phone}</div>`;
     };
     document.getElementById('officers').innerHTML = COMMITTEE.filter(m => m.officer).map(card).join('');
-    document.getElementById('committeeList').innerHTML = COMMITTEE.filter(m => !m.officer).map(card).join('');
+    document.getElementById('committeeList').innerHTML = COMMITTEE.filter(m => !m.officer).sort((a, b) => a.name.localeCompare(b.name)).map(card).join('');
   })();
 
   /* ---- countdown to June 2027 ---- */
