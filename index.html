@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyler-Tinsley Family Reunion 2027</title>
+<meta name="description" content="Tyler-Tinsley Family Reunion 2027: a June weekend of fun and family. Itinerary, dues, guest rules and our fundraising goal.">
+<meta property="og:title" content="Tyler-Tinsley Family Reunion 2027">
+<meta property="og:description" content="Fun & Family. June 2027. Get your dues in and come home.">
+<meta property="og:image" content="images/group-field.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Yellowtail&family=Alfa+Slab+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     QUICK EDITS: the fundraising % and other details live in the
+     SITE SETTINGS block in the <script> at the bottom of this file.
+     ============================================================ */
+  :root{
+    --red:#b3121b;
+    --red-deep:#6e0b10;
+    --maroon:#4a1a14;
+    --gold:#f4b52c;
+    --gold-light:#ffe08a;
+    --cream:#fff8ea;
+    --sky:#8fd3ff;
+    --sky-deep:#2a8fd4;
+    --wood:#b57a3c;
+    --wood-dark:#6b4220;
+    --ink:#2b160e;
+    --shadow:0 18px 40px -18px rgba(60,20,5,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ---------- shared textures ---------- */
+  .wood{
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.10) 0 2px, transparent 2px 140px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 23px),
+      linear-gradient(90deg,#c98c47,#e0a55a 20%,#b97a3a 38%,#d99c52 55%,#b87736 72%,#dca05a 88%,#c28444);
+  }
+  .glow{
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(255,233,140,.95), rgba(255,190,60,.55) 40%, transparent 70%),
+      repeating-linear-gradient(90deg, rgba(120,60,0,.10) 0 2px, transparent 2px 120px),
+      linear-gradient(180deg,#f7c24a,#eaa233);
+  }
+  .gingham{
+    background-color:#fff;
+    background-image:
+      linear-gradient(90deg, rgba(200,20,30,.55) 50%, transparent 50%),
+      linear-gradient(rgba(200,20,30,.55) 50%, transparent 50%);
+    background-size:28px 28px;
+  }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 24px;
+    background:linear-gradient(rgba(74,26,20,.7),rgba(74,26,20,0));
+    transition:background .3s, box-shadow .3s;
+  }
+  .nav.scrolled{background:rgba(74,26,20,.95);box-shadow:0 6px 20px rgba(0,0,0,.25);backdrop-filter:blur(6px)}
+  .brand{font-family:'Yellowtail',cursive;font-size:1.7rem;color:#fff;text-decoration:none;text-shadow:0 2px 0 var(--red)}
+  .nav ul{display:flex;gap:4px;list-style:none}
+  .nav ul a{
+    display:block;padding:8px 12px;border-radius:999px;
+    font-weight:800;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
+    color:#fff;text-decoration:none;transition:background .2s,color .2s;
+  }
+  .nav ul a:hover,.nav ul a.active{background:var(--gold);color:var(--maroon)}
+  .nav .pay-btn{background:var(--red);box-shadow:0 0 0 2px #fff inset}
+  .menu-toggle{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+  .menu-toggle svg{width:30px;height:30px}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;
+    display:grid;place-items:center;text-align:center;
+    padding:110px 16px 90px;overflow:hidden;
+  }
+  .hero::before{ /* spotlight */
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 55% at 50% 45%, rgba(255,236,160,.85), rgba(255,200,80,.25) 55%, transparent 75%);
+    pointer-events:none;
+  }
+  .cloth{position:absolute;width:230px;height:230px;border-radius:14px;box-shadow:var(--shadow);z-index:1}
+  .cloth.tl{top:-80px;left:-70px;transform:rotate(-24deg)}
+  .cloth.tr{top:-90px;right:-60px;transform:rotate(18deg)}
+  .cloth.bl{bottom:-100px;left:-80px;transform:rotate(12deg)}
+  .cloth.br{bottom:-90px;right:-70px;transform:rotate(-20deg)}
+  .hero-inner{position:relative;z-index:2;max-width:900px}
+  .title-script{
+    font-family:'Yellowtail',cursive;
+    font-size:clamp(3.4rem,11vw,7.5rem);line-height:.9;
+    color:#fff;
+    -webkit-text-stroke:2px var(--red-deep);
+    text-shadow:0 4px 0 var(--red),0 8px 0 var(--red-deep),0 0 30px rgba(255,120,40,.7);
+    transform:rotate(-4deg);
+  }
+  .title-block{
+    font-family:'Rye',serif;
+    font-size:clamp(3rem,10.5vw,7.4rem);line-height:.95;
+    color:#fff;
+    background:linear-gradient(180deg,#ffffff 30%,#bfe6ff 60%,#7cc4f2);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 3px 0 var(--red)) drop-shadow(0 4px 0 var(--red-deep)) drop-shadow(0 0 14px rgba(255,90,20,.6));
+    margin-top:.1em;
+  }
+  .title-year{
+    font-family:'Yellowtail',cursive;
+    font-size:clamp(4rem,13vw,9rem);line-height:.9;
+    color:#fff;
+    -webkit-text-stroke:2px var(--red-deep);
+    text-shadow:0 4px 0 var(--red),0 8px 0 var(--red-deep),0 0 30px rgba(255,120,40,.7);
+    margin-top:-.05em;
+  }
+  .hero-date{
+    margin:26px auto 0;
+    display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px 18px;align-items:center;
+    font-family:'Alfa Slab One',serif;color:var(--maroon);
+    font-size:clamp(1.1rem,3vw,1.6rem);letter-spacing:.03em;
+  }
+  .hero-date .dot{width:10px;height:10px;border-radius:50%;background:var(--red)}
+  .tba{font-family:'Nunito';font-weight:800;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deep);margin-top:6px}
+  .countdown{
+    display:flex;justify-content:center;gap:12px;margin:26px 0 30px;flex-wrap:wrap;
+  }
+  .countdown div{
+    background:var(--maroon);color:#fff;border-radius:14px;min-width:84px;padding:10px 12px;
+    box-shadow:0 4px 0 var(--red-deep);
+  }
+  .countdown b{display:block;font-family:'Alfa Slab One';font-size:1.9rem;line-height:1.1;color:var(--gold-light)}
+  .countdown span{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;border-radius:999px;border:0;cursor:pointer;
+    font-family:'Nunito';font-weight:800;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;
+    text-decoration:none;transition:transform .15s, box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 5px 0 var(--red-deep)}
+  .btn-red:hover{box-shadow:0 7px 0 var(--red-deep)}
+  .btn-cream{background:#fff;color:var(--maroon);box-shadow:0 5px 0 #d8b97a}
+  .btn-blue{background:#1877f2;color:#fff;box-shadow:0 5px 0 #0d4fa8}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- sections ---------- */
+  section{position:relative}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+  .pad{padding:96px 0}
+  .eyebrow{
+    display:inline-block;font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--red);background:#fff;border:2px solid var(--red);border-radius:999px;padding:4px 14px;margin-bottom:14px;
+  }
+  .h2{
+    font-family:'Rye',serif;font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.05;color:var(--maroon);
+  }
+  .h2 .script{font-family:'Yellowtail',cursive;color:var(--red);font-size:1.15em;display:inline-block;transform:rotate(-3deg)}
+  .lead{font-size:1.15rem;max-width:640px;margin-top:14px}
+  .center{text-align:center}
+  .center .lead{margin-left:auto;margin-right:auto}
+  .scallop{height:22px;background:radial-gradient(circle at 11px 0,transparent 11px,var(--cream) 12px) repeat-x;background-size:22px 22px}
+  .scallop.flip{transform:rotate(180deg)}
+  .stripe{height:14px}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .about-text p{margin-top:16px;font-size:1.08rem}
+  .polaroids{position:relative;height:460px}
+  .polaroid{
+    position:absolute;background:#fff;padding:12px 12px 44px;box-shadow:var(--shadow);border-radius:4px;
+    transition:transform .3s;
+  }
+  .polaroid img{width:100%;height:100%;object-fit:cover}
+  .polaroid figcaption{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Yellowtail';font-size:1.35rem;color:var(--maroon)}
+  .polaroid:hover{transform:rotate(0) scale(1.04)!important;z-index:5}
+  .p1{width:66%;height:62%;top:0;left:0;transform:rotate(-5deg)}
+  .p2{width:58%;height:58%;bottom:0;right:0;transform:rotate(4deg)}
+  .p3{width:40%;height:40%;top:30%;right:6%;transform:rotate(-2deg);z-index:2}
+
+  .definition{
+    margin-top:80px;background:#fff;border-radius:20px;padding:44px 48px;box-shadow:var(--shadow);
+    border:3px solid var(--maroon);position:relative;
+  }
+  .definition::before{
+    content:"";position:absolute;inset:10px;border:2px dashed rgba(179,18,27,.35);border-radius:12px;pointer-events:none;
+  }
+  .def-word{font-family:'Rye';font-size:clamp(2.2rem,6vw,3.6rem);color:var(--maroon);line-height:1}
+  .def-meta{font-style:italic;color:#8a5a3a;margin:6px 0 20px;font-size:1.05rem}
+  .def-meta b{font-style:normal;color:var(--red)}
+  .definition ol{padding-left:1.4em;display:grid;gap:12px;font-size:1.1rem}
+  .definition ol li::marker{font-family:'Alfa Slab One';color:var(--red)}
+  .def-ex{margin-top:22px;padding-top:18px;border-top:2px dotted #e3c9a4;font-family:'Yellowtail';font-size:1.7rem;color:var(--red);line-height:1.3}
+
+  /* ---------- itinerary ---------- */
+  #weekend{color:var(--ink)}
+  .days{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+  .day{
+    background:var(--cream);border-radius:22px;padding:34px 26px 30px;text-align:center;
+    box-shadow:0 10px 0 var(--red-deep), var(--shadow);border:4px solid var(--red);
+    position:relative;transition:transform .2s;
+  }
+  .day:hover{transform:translateY(-6px) rotate(-.5deg)}
+  .day-icon{width:74px;height:74px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:var(--gold);box-shadow:0 0 0 6px #fff,0 0 0 9px var(--red)}
+  .day-icon svg{width:38px;height:38px;color:var(--maroon)}
+  .day-name{font-family:'Alfa Slab One';font-size:2.1rem;color:#fff;-webkit-text-stroke:1.5px var(--red-deep);text-shadow:0 3px 0 var(--red);letter-spacing:.02em}
+  .day-event{font-family:'Rye';font-size:1.45rem;color:var(--maroon);margin-top:2px}
+  .day p{margin-top:10px}
+  .food-banner{
+    margin-top:44px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;
+    background:var(--maroon);color:#fff;border-radius:20px;padding:22px 28px;text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .food-banner strong{font-family:'Alfa Slab One';font-size:1.25rem;letter-spacing:.03em;color:var(--gold-light)}
+  .food-banner .script{font-family:'Yellowtail';font-size:2.1rem;color:#fff}
+  .note{margin-top:18px;font-size:.95rem;font-weight:700;color:var(--maroon);text-align:center}
+
+  /* ---------- where from ---------- */
+  .states{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:44px}
+  .state{
+    width:136px;background:#fff;border-radius:16px;padding:18px 10px 16px;text-align:center;
+    box-shadow:var(--shadow);border-top:8px solid var(--red);position:relative;transition:transform .2s;
+  }
+  .state:nth-child(even){border-top-color:var(--sky-deep)}
+  .state:nth-child(odd){transform:rotate(-2deg)}
+  .state:nth-child(even){transform:rotate(2deg)}
+  .state:hover{transform:rotate(0) translateY(-6px)}
+  .state::before{ /* pin */
+    content:"";position:absolute;top:-16px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ff8a8a,var(--red) 60%,var(--red-deep));box-shadow:0 3px 4px rgba(0,0,0,.3);
+  }
+  .state b{display:block;font-family:'Alfa Slab One';font-size:2.3rem;line-height:1;color:var(--maroon)}
+  .state span{font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:.08em}
+  .state.home{outline:3px solid var(--gold);outline-offset:4px}
+  .state.home small{display:block;font-family:'Yellowtail';font-size:1.1rem;color:var(--red);margin-top:2px}
+  .states-count{margin-top:40px;font-family:'Yellowtail';font-size:clamp(1.8rem,4.5vw,2.6rem);color:var(--red);text-align:center;line-height:1.2}
+
+  /* ---------- the stay ---------- */
+  .stay-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;margin-top:44px}
+  .stay-grid figure{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:5px solid #fff}
+  .stay-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .stay-grid figure:hover img{transform:scale(1.06)}
+  .stay-grid figcaption{
+    position:absolute;left:10px;bottom:10px;background:rgba(74,26,20,.88);color:#fff;
+    font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;
+  }
+  .s-big{grid-column:span 2;grid-row:span 2}
+  .s-wide{grid-column:span 2}
+  .tentative{
+    display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+    background:#fff3cd;border:2px dashed var(--wood);color:var(--wood-dark);font-weight:800;padding:8px 16px;border-radius:12px;font-size:.95rem;
+  }
+
+  /* ---------- goal ---------- */
+  #goal{color:#fff;background:var(--maroon);overflow:hidden}
+  #goal::before{
+    content:"";position:absolute;inset:0;opacity:.18;
+    background:url('images/group-night.jpg') center/cover;
+    filter:grayscale(1);
+  }
+  #goal .h2{color:#fff}
+  #goal .h2 .script{color:var(--gold)}
+  #goal .eyebrow{background:transparent;color:var(--gold-light);border-color:var(--gold-light)}
+  .goal-card{
+    position:relative;margin:44px auto 0;max-width:820px;background:rgba(255,248,234,.97);color:var(--ink);
+    border-radius:26px;padding:40px 36px 34px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
+  }
+  .goal-pct{
+    font-family:'Alfa Slab One';font-size:clamp(4rem,14vw,7rem);line-height:1;color:var(--red);
+    text-shadow:0 5px 0 var(--red-deep);text-align:center;
+  }
+  .goal-pct small{font-size:.45em;vertical-align:top;margin-left:2px}
+  .goal-label{text-align:center;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin-top:6px}
+  .bar{
+    position:relative;margin-top:28px;height:42px;border-radius:999px;background:#ecdcc2;
+    box-shadow:inset 0 3px 8px rgba(0,0,0,.2);overflow:visible;
+  }
+  .bar-fill{
+    position:absolute;inset:0 auto 0 0;width:0;border-radius:999px;
+    background:
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.22) 0 14px, transparent 14px 28px),
+      linear-gradient(90deg,var(--red),#e2412b 60%,var(--gold));
+    background-size:40px 40px,100% 100%;
+    animation:stripes 1.2s linear infinite;
+    transition:width 2s cubic-bezier(.2,.8,.2,1);
+    box-shadow:0 0 18px rgba(226,65,43,.6);
+  }
+  @keyframes stripes{to{background-position:40px 0,0 0}}
+  .bar-marks{display:flex;justify-content:space-between;margin-top:10px;font-weight:800;font-size:.85rem;color:#8a5a3a}
+  .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+  .milestone{text-align:center;padding:14px 8px;border-radius:14px;background:#fff;border:2px solid #ecdcc2;font-weight:800;font-size:.9rem;color:#9b7a5c}
+  .milestone .ico{font-size:1.5rem;display:block;filter:grayscale(1);opacity:.5}
+  .milestone.hit{border-color:var(--red);color:var(--maroon);background:#fff4ec}
+  .milestone.hit .ico{filter:none;opacity:1}
+  .goal-cta{text-align:center;margin-top:28px}
+  .goal-cta p{margin-bottom:16px;font-weight:700}
+
+  /* ---------- dues & guests ---------- */
+  .dues-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;margin-top:44px;align-items:stretch}
+  .ticket{
+    position:relative;background:var(--red);color:#fff;border-radius:24px;padding:40px 36px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .ticket::before,.ticket::after{ /* punched holes */
+    content:"";position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;background:var(--cream);
+  }
+  .ticket::before{left:-20px}.ticket::after{right:-20px}
+  .ticket-inner{border:2px dashed rgba(255,255,255,.6);border-radius:16px;padding:28px 24px;text-align:center}
+  .ticket .label{font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;color:var(--gold-light)}
+  .price{font-family:'Alfa Slab One';font-size:clamp(4.5rem,12vw,6.5rem);line-height:1;margin:6px 0;text-shadow:0 5px 0 var(--red-deep)}
+  .price sup{font-size:.45em;vertical-align:top;position:relative;top:.35em}
+  .per{font-family:'Yellowtail';font-size:2rem;line-height:1}
+  .ticket p{margin:14px 0 22px}
+  .ticket .btn-cream{font-size:1.05rem}
+  .installments{margin-top:22px;padding-top:20px;border-top:2px dashed rgba(255,255,255,.45);display:flex;flex-direction:column;align-items:center;gap:6px}
+  .installments b{font-family:'Alfa Slab One';font-weight:400;font-size:1.15rem;color:var(--gold-light);letter-spacing:.02em}
+  .installments span{font-size:.98rem}
+  .btn-outline{margin-top:8px;background:transparent;color:#fff;box-shadow:0 0 0 2px #fff inset;padding:11px 22px;font-size:.92rem}
+  .btn-outline:hover{background:#fff;color:var(--red)}
+  .cashtag{display:block;margin-top:14px;font-weight:800;color:#fff;opacity:.95}
+  .cashtag a{color:var(--gold-light)}
+  .guest-card{
+    background:#fff;border-radius:24px;padding:36px 32px;box-shadow:var(--shadow);border:3px solid var(--maroon);
+    display:flex;flex-direction:column;justify-content:center;text-align:center;
+  }
+  .guest-card h3{font-family:'Rye';font-size:1.8rem;color:var(--maroon);line-height:1.1}
+  .guest-card > p{margin-top:8px}
+  .rule{display:flex;gap:16px;align-items:center;margin-top:20px;text-align:left;padding:16px;border-radius:16px;background:var(--cream)}
+  .rule .badge{
+    flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;text-align:center;
+    font-family:'Alfa Slab One';font-size:1.3rem;line-height:1;color:#fff;
+  }
+  .rule .badge.free{background:var(--sky-deep);box-shadow:0 0 0 4px #fff,0 0 0 7px var(--sky-deep)}
+  .rule .badge.paid{background:var(--red);box-shadow:0 0 0 4px #fff,0 0 0 7px var(--red)}
+  .rule b{display:block;font-size:1.05rem;color:var(--maroon)}
+  .rule span{font-size:.95rem}
+  .guest-foot{padding-top:22px;font-weight:700;color:var(--maroon)}
+  .guest-foot a{color:var(--red)}
+
+  /* ---------- committee ---------- */
+  .officers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .committee{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:22px}
+  .committee .member{width:calc(20% - 13px)}
+  .member{
+    background:#fff;border-radius:18px;padding:22px 16px 18px;text-align:center;box-shadow:var(--shadow);
+    border:2px solid #ecdcc2;display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .avatar{
+    width:62px;height:62px;border-radius:50%;display:grid;place-items:center;margin-bottom:6px;
+    font-family:'Alfa Slab One';font-size:1.3rem;color:#fff;background:var(--maroon);box-shadow:0 0 0 4px #fff,0 0 0 6px var(--gold);
+  }
+  .member .name{font-weight:800;font-size:1.05rem;color:var(--maroon);line-height:1.25}
+  .member .role{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9b7a5c}
+  .member .phone{margin-top:8px;font-weight:800;font-size:.95rem;color:var(--red);text-decoration:none}
+  .member .phone.soon{color:#b9a58c;font-weight:700;font-size:.85rem}
+  .officers .member{border:3px solid var(--red);padding:28px 18px 24px}
+  .officers .avatar{width:78px;height:78px;font-size:1.6rem;background:var(--red)}
+  .officers .role{color:#fff;background:var(--red);padding:3px 12px;border-radius:999px;letter-spacing:.12em}
+  .more-soon{margin-top:26px;font-weight:700;color:var(--maroon)}
+
+  /* ---------- memories ---------- */
+  .memories{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .memories img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .memories .elders-img{object-position:center 30%}
+  .memories figure.add-photo{display:flex}
+  .add-photo-inner{
+    width:100%;aspect-ratio:4/3;display:grid;place-items:center;align-content:center;gap:6px;text-align:center;padding:16px;
+    border:3px dashed #e3c9a4;background:var(--cream);color:var(--maroon);font-weight:800;
+  }
+  .add-photo-inner .big{font-family:'Yellowtail';font-size:2rem;color:var(--red);line-height:1}
+  .add-photo-inner a{color:var(--red)}
+  .memories figure{background:#fff;padding:10px 10px 38px;border-radius:4px;box-shadow:var(--shadow);position:relative;transition:transform .3s}
+  .memories figure:nth-child(odd){transform:rotate(-1.5deg)}
+  .memories figure:nth-child(even){transform:rotate(1.5deg)}
+  .memories figure:hover{transform:rotate(0) scale(1.03);z-index:2}
+  .memories figcaption{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Yellowtail';font-size:1.3rem;color:var(--maroon)}
+  .fb-cta{text-align:center;margin-top:40px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--maroon);color:#f5e6cf;text-align:center;padding:64px 16px 40px}
+  .foot-title{font-family:'Yellowtail';font-size:clamp(2.6rem,8vw,4rem);color:#fff;line-height:1;text-shadow:0 3px 0 var(--red)}
+  .foot-sub{font-family:'Rye';font-size:1.2rem;color:var(--gold-light);margin-top:6px}
+  .foot-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+  .foot-links a{color:#fff;font-weight:800;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px}
+  footer small{opacity:.7}
+  .soon-link{font-weight:800;opacity:.6;border-bottom:2px dashed rgba(244,181,44,.6);padding-bottom:2px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .bar-fill{animation:none;transition:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .nav ul{
+      position:fixed;top:62px;left:12px;right:12px;flex-direction:column;gap:2px;
+      background:var(--maroon);border-radius:18px;padding:12px;box-shadow:var(--shadow);
+      opacity:0;pointer-events:none;transform:translateY(-8px);transition:.2s;
+    }
+    .nav.open ul{opacity:1;pointer-events:auto;transform:none}
+    .nav.open{background:rgba(74,26,20,.97)}
+    .nav ul a{padding:12px 16px;font-size:1rem}
+    .menu-toggle{display:block}
+    .about-grid,.dues-grid{grid-template-columns:1fr}
+    .days{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
+    .stay-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+    .polaroids{height:400px;max-width:520px;margin:0 auto;width:100%}
+    .state{width:calc(25% - 12px);max-width:150px}
+    .memories{grid-template-columns:repeat(2,1fr)}
+    .committee .member{width:calc(50% - 8px)}
+  }
+  @media (max-width:560px){
+    .pad{padding:72px 0}
+    .hero-date{flex-direction:column;gap:2px}
+    .hero-date .dot{display:none}
+    .cloth{width:140px;height:140px}
+    .cloth.tl{top:-60px;left:-60px}.cloth.tr{top:-60px;right:-60px}
+    .cloth.bl{bottom:-60px;left:-60px}.cloth.br{bottom:-60px;right:-60px}
+    .countdown div{min-width:68px;padding:8px}
+    .countdown b{font-size:1.5rem}
+    .definition{padding:32px 24px}
+    .milestones{grid-template-columns:repeat(2,1fr)}
+    .goal-card,.ticket,.guest-card{padding:28px 20px}
+    .ticket-inner{padding:22px 14px}
+    .stay-grid{grid-template-columns:1fr;grid-auto-rows:210px}
+    .s-big,.s-wide{grid-column:auto;grid-row:auto}
+    .polaroids{height:340px}
+    .states{gap:18px 10px}
+    .state{width:calc(25% - 8px);padding:14px 2px 12px;border-top-width:6px}
+    .state b{font-size:1.45rem}
+    .state span{font-size:.58rem;letter-spacing:.02em}
+    .state.home small{font-size:.85rem}
+    .memories{grid-template-columns:1fr}
+    .officers{grid-template-columns:1fr}
+    .committee{gap:12px}
+    .committee .member{width:calc(50% - 6px);padding:18px 10px 14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#home" class="brand">Tyler-Tinsley</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <ul id="navLinks">
+    <li><a href="#about">Who We Are</a></li>
+    <li><a href="#weekend">Itinerary</a></li>
+    <li><a href="#from">Where We're From</a></li>
+    <li><a href="#stay">The Stay</a></li>
+    <li><a href="#goal">Our Goal</a></li>
+    <li><a href="#dues">Dues &amp; Guests</a></li>
+    <li><a href="#committee">Committee</a></li>
+    <li><a href="#memories">Memories</a></li>
+    <li><a href="#dues" class="pay-btn">Pay Dues</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero wood" id="home">
+  <div class="cloth gingham tl"></div>
+  <div class="cloth gingham tr"></div>
+  <div class="cloth gingham bl"></div>
+  <div class="cloth gingham br"></div>
+
+  <div class="hero-inner">
+    <h1>
+      <span class="title-script" style="display:block">Tyler-Tinsley</span>
+      <span class="title-block" style="display:block">FAMILY<br>REUNION</span>
+      <span class="title-year" style="display:block">2027</span>
+    </h1>
+
+    <div class="hero-date">
+      <span>JUNE 2027</span><span class="dot"></span><span>3 DAYS OF FUN</span><span class="dot"></span><span>FAMILY ONLY</span>
+    </div>
+    <p class="tba">Exact dates &amp; location coming soon</p>
+
+    <div class="countdown" aria-label="Countdown to June 2027">
+      <div><b id="cdDays">--</b><span>Days</span></div>
+      <div><b id="cdWeeks">--</b><span>Weeks</span></div>
+      <div><b id="cdMonths">--</b><span>Months</span></div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="https://cash.app/pay/link/l492fazz" target="_blank" rel="noopener" class="btn btn-red">Pay My $80 Dues</a>
+      <a href="#weekend" class="btn btn-cream">See the Weekend</a>
+    </div>
+  </div>
+</header>
+<div class="stripe gingham"></div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="pad">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="h2">One Family. <span class="script">Many Branches.</span></h2>
+        <p>We are the <strong>Tyler-Tinsley family</strong>: generations of aunties, uncles, cousins, grandbabies and the elders who started it all. Our roots run deep in Indiana, and over the years our branches have stretched across the country from coast to coast.</p>
+        <p>Every reunion is our chance to come back to the table. We tell the old stories and meet the new babies, and we make sure every generation knows where it comes from. We've been doing this for years, and we're not stopping now.</p>
+        <p><strong>In June 2027 we're doing it again: a whole weekend of fun and family.</strong> Tell your people and save your coins. We'll see you there.</p>
+      </div>
+      <div class="polaroids reveal">
+        <figure class="polaroid p1"><img src="images/group-porch.jpg" alt="The Tyler-Tinsley family gathered for a group photo at night"><figcaption>All of us</figcaption></figure>
+        <figure class="polaroid p2"><img src="images/group-field.jpg" alt="Family group photo on a grassy field in matching reunion shirts"><figcaption>Reunion shirts on</figcaption></figure>
+        <figure class="polaroid p3"><img src="images/elders.jpg" alt="Two family elders smiling together"><figcaption>Where it began</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="definition reveal">
+      <div class="def-word">fam·i·ly</div>
+      <div class="def-meta">/ˈfam(ə)lē/ · <b>noun</b> · <em>see also: Tyler-Tinsley</em></div>
+      <ol>
+        <li>A group of people bound by blood, love and history who show up for one another, no matter how many miles lie between them.</li>
+        <li>The ones who knew you before you knew yourself, and love you anyway.</li>
+        <li>A tree whose roots hold it steady and whose branches keep growing, reaching new places while staying connected to where it all began.</li>
+      </ol>
+      <div class="def-ex">"No matter where life takes us, family is where we always come home."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<div class="scallop"></div>
+<section id="weekend" class="pad glow">
+  <div class="wrap center">
+    <span class="eyebrow reveal">The Itinerary</span>
+    <h2 class="h2 reveal">Three Days of <span class="script">Fun &amp; Family</span></h2>
+    <p class="lead reveal">Here's the plan for the weekend. We'll share exact times and addresses once everything is locked in.</p>
+
+    <div class="days">
+      <article class="day reveal">
+        <div class="day-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="day-name">FRIDAY</div>
+        <div class="day-event">Meet &amp; Greet</div>
+        <p>Pull up, check in, and hug everybody. Catch up with cousins you haven't seen in years and meet the newest members of the family.</p>
+      </article>
+      <article class="day reveal">
+        <div class="day-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+        <div class="day-name">SATURDAY</div>
+        <div class="day-event">Fun Day</div>
+        <p>The main event, with everyone together. Games, music, laughs, good food and a family group photo for the books.</p>
+      </article>
+      <article class="day reveal">
+        <div class="day-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></div>
+        <div class="day-name">SUNDAY</div>
+        <div class="day-event">Brunch</div>
+        <p>One more meal together before the road trips home. Full bellies, full hearts, and plenty of "see you next time" hugs.</p>
+      </article>
+    </div>
+
+    <div class="food-banner reveal">
+      <strong>FOOD &amp; DRINK WILL BE PROVIDED EACH DAY</strong>
+      <span class="script">you focus on Fun &amp; Family</span>
+    </div>
+    <p class="note reveal">📍 Location TBA. We're hoping to book the Airbnb below. 📅 Dates TBA sometime in June 2027.</p>
+  </div>
+</section>
+<div class="scallop flip"></div>
+
+<!-- ============ WHERE FROM ============ -->
+<section id="from" class="pad">
+  <div class="wrap center">
+    <span class="eyebrow reveal">Where We're Coming From</span>
+    <h2 class="h2 reveal">From Coast <span class="script">to Coast</span></h2>
+    <p class="lead reveal">The Tyler-Tinsley family is spread across the country, and every June we find our way back to each other.</p>
+
+    <div class="states reveal">
+      <div class="state home"><b>IN</b><span>Indiana</span><small>home base</small></div>
+      <div class="state"><b>OH</b><span>Ohio</span></div>
+      <div class="state"><b>CA</b><span>California</span></div>
+      <div class="state"><b>GA</b><span>Georgia</span></div>
+      <div class="state"><b>KY</b><span>Kentucky</span></div>
+      <div class="state"><b>NY</b><span>New York</span></div>
+      <div class="state"><b>AZ</b><span>Arizona</span></div>
+    </div>
+    <p class="states-count reveal">7 states · 1 family · 1 weekend</p>
+  </div>
+</section>
+
+<!-- ============ THE STAY ============ -->
+<section id="stay" class="pad wood">
+  <div class="wrap center">
+    <span class="eyebrow reveal">The Stay</span>
+    <h2 class="h2 reveal" style="color:#fff;text-shadow:0 3px 0 var(--red-deep)">Where We <span class="script" style="color:var(--gold-light)">Hope to Be</span></h2>
+    <p class="lead reveal" style="color:#fff;font-weight:600">We're working on booking a big Airbnb with room for everybody, plus a pool, a game room, arcade games and a huge kitchen.</p>
+    <span class="tentative reveal">⏳ Not booked yet. Your dues help us lock it in!</span>
+
+    <div class="stay-grid reveal">
+      <figure class="s-big"><img src="images/stay-pool.jpg" alt="Indoor lap pool with skylights" loading="lazy"><figcaption>Indoor pool</figcaption></figure>
+      <figure><img src="images/stay-arcade.jpg" alt="Retro arcade machines" loading="lazy"><figcaption>Arcade</figcaption></figure>
+      <figure><img src="images/stay-gameroom.jpg" alt="Game room with air hockey and foosball" loading="lazy"><figcaption>Game room</figcaption></figure>
+      <figure class="s-wide"><img src="images/stay-living.jpg" alt="Large living room with sectional sofa" loading="lazy"><figcaption>Living room</figcaption></figure>
+      <figure class="s-wide"><img src="images/stay-kitchen.jpg" alt="Large kitchen with island" loading="lazy"><figcaption>Big kitchen</figcaption></figure>
+      <figure class="s-wide"><img src="images/stay-lounge.jpg" alt="Open lounge area" loading="lazy"><figcaption>Lounge</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOAL ============ -->
+<section id="goal" class="pad">
+  <div class="wrap center" style="position:relative">
+    <span class="eyebrow reveal">Our Goal</span>
+    <h2 class="h2 reveal">Let's Get Us <span class="script">All the Way There</span></h2>
+    <p class="lead reveal" style="color:#f5e6cf">Every dollar goes toward the house, the food and the fun. Here's how close we are to our reunion goal.</p>
+
+    <div class="goal-card reveal">
+      <div class="goal-pct"><span id="pctNum">0</span><small>%</small></div>
+      <div class="goal-label">of our goal reached</div>
+      <div class="bar" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+      <div class="bar-marks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+
+      <div class="milestones">
+        <div class="milestone" data-at="25"><span class="ico">🏠</span>Deposit</div>
+        <div class="milestone" data-at="50"><span class="ico">🍗</span>Food &amp; Drinks</div>
+        <div class="milestone" data-at="75"><span class="ico">🎉</span>Fun Day</div>
+        <div class="milestone" data-at="100"><span class="ico">❤️</span>We Made It!</div>
+      </div>
+
+      <div class="goal-cta">
+        <p>Help push the bar. Pay your dues today!</p>
+        <div class="hero-ctas">
+          <a href="https://cash.app/pay/link/l492fazz" target="_blank" rel="noopener" class="btn btn-red">Pay $80 in Full</a>
+          <a href="https://cash.app/pay/link/mz62atg9" target="_blank" rel="noopener" class="btn btn-cream">Pay in Installments</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DUES & GUESTS ============ -->
+<section id="dues" class="pad">
+  <div class="wrap center">
+    <span class="eyebrow reveal">Dues &amp; Guests</span>
+    <h2 class="h2 reveal">Secure Your <span class="script">Spot</span></h2>
+
+    <div class="dues-grid">
+      <div class="ticket reveal">
+        <div class="ticket-inner">
+          <div class="label">2027 Family Dues</div>
+          <div class="price"><sup>$</sup>80</div>
+          <div class="per">per person</div>
+          <p>Your dues cover the house, food and drinks all weekend, plus the fun. Tap below to pay the full $80 in one go. Cash App fills in the amount for you.</p>
+          <a href="https://cash.app/pay/link/l492fazz" target="_blank" rel="noopener" class="btn btn-cream">💵 Pay $80 on Cash App</a>
+          <div class="installments">
+            <b>Need to split it up?</b>
+            <span>Pay toward your dues in pieces, like $20 a month for 4 months.</span>
+            <a href="https://cash.app/pay/link/mz62atg9" target="_blank" rel="noopener" class="btn btn-outline">Make a Payment</a>
+          </div>
+          <span class="cashtag">or send to <a href="https://cash.app/$Tytireunion" target="_blank" rel="noopener">$Tytireunion</a> · please put your name in the note</span>
+        </div>
+      </div>
+
+      <div class="guest-card reveal">
+        <h3>Bringing a Guest?</h3>
+        <p>We love new faces! Here's how guests work:</p>
+        <div class="rule">
+          <div class="badge free">FREE</div>
+          <div><b>First time attending</b><span>Guests coming to their first Tyler-Tinsley reunion get in free.</span></div>
+        </div>
+        <div class="rule">
+          <div class="badge paid">$25</div>
+          <div><b>Second time attending</b><span>Guests coming back a second time pay $25.</span></div>
+        </div>
+        <p class="guest-foot">Questions about bringing someone? Message us on <a href="https://www.facebook.com/tyler.tinsley.376" target="_blank" rel="noopener">Facebook</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMITTEE ============ -->
+<section id="committee" class="pad">
+  <div class="wrap center">
+    <span class="eyebrow reveal">The Committee</span>
+    <h2 class="h2 reveal">The Folks <span class="script">Making It Happen</span></h2>
+    <p class="lead reveal">Questions about dues, the weekend or anything else? Reach out to anyone on the committee. We're here to help.</p>
+    <div class="officers reveal" id="officers"></div>
+    <div class="committee reveal" id="committeeList"></div>
+    <p class="more-soon reveal">More committee members coming soon!</p>
+  </div>
+</section>
+
+<!-- ============ MEMORIES ============ -->
+<div class="scallop"></div>
+<section id="memories" class="pad glow">
+  <div class="wrap center">
+    <span class="eyebrow reveal">Memories</span>
+    <h2 class="h2 reveal">Reunions <span class="script">Past</span></h2>
+    <p class="lead reveal">A few favorites from over the years. Let's make 2027 the best one yet.</p>
+
+    <div class="memories">
+      <figure class="reveal"><img src="images/group-night.jpg" alt="Large family group photo outside at night" loading="lazy"><figcaption>The whole crew</figcaption></figure>
+      <figure class="reveal"><img src="images/shirt-2009.jpg" alt="2009 Tyler-Tinsley-White reunion t-shirt, Indianapolis" loading="lazy"><figcaption>Indy, 2009</figcaption></figure>
+      <figure class="reveal"><img src="images/group-indoor.jpg" alt="Family group photo indoors" loading="lazy"><figcaption>Squeeze in!</figcaption></figure>
+      <figure class="reveal"><img class="elders-img" src="images/elders.jpg" alt="Two family elders" loading="lazy"><figcaption>Our roots</figcaption></figure>
+      <figure class="reveal"><img src="images/group-field.jpg" alt="Family group on a field in reunion shirts" loading="lazy"><figcaption>Matching shirts</figcaption></figure>
+      <figure class="reveal"><img src="images/food.jpg" alt="Trays of rolls and ribs on the reunion buffet" loading="lazy"><figcaption>Plenty to eat</figcaption></figure>
+    </div>
+
+    <div class="fb-cta reveal">
+      <a href="https://www.facebook.com/tyler.tinsley.376" target="_blank" rel="noopener" class="btn btn-blue">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+        More Photos on Facebook
+      </a>
+    </div>
+  </div>
+</section>
+<div class="scallop flip"></div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-title">Fun &amp; Family</div>
+  <div class="foot-sub">Tyler-Tinsley Family Reunion · June 2027</div>
+  <div class="foot-links">
+    <a href="https://cash.app/pay/link/l492fazz" target="_blank" rel="noopener">Pay Dues</a>
+    <a href="https://cash.app/$Tytireunion" target="_blank" rel="noopener">$Tytireunion</a>
+    <a href="https://www.facebook.com/tyler.tinsley.376" target="_blank" rel="noopener">Facebook</a>
+    <!-- When the bylaws are ready: replace this <span> with <a href="bylaws.pdf" target="_blank">Family Bylaws</a> -->
+    <span class="soon-link">Family Bylaws (coming soon)</span>
+    <a href="#home">Back to Top ↑</a>
+  </div>
+  <small>Indiana · Ohio · California · Georgia · Kentucky · New York · Arizona</small>
+</footer>
+
+<script>
+  /* ===================== SITE SETTINGS ======================
+     FUND_PERCENT: update this number as dues come in.
+     Only the percentage is ever shown on the site.
+     (Math: amount raised ÷ goal × 100, rounded. Keep dollar amounts OUT of this file.)
+     ========================================================== */
+  const FUND_PERCENT = 26;
+  /* COMMITTEE: add phone numbers as 'phone' (e.g. '317-555-1234').
+     Leave phone empty ('') to show "Number coming soon". officer:true = top row. */
+  const COMMITTEE = [
+    { name:'Amariah Brown',    role:'CEO',    phone:'317-313-6409', officer:true },
+    { name:'Lauran Offutt',    role:'COO',    phone:'317-238-0660', officer:true },
+    { name:'Lauren Dickerson', role:'CFO',    phone:'317-809-3928', officer:true },
+    { name:'Latonja Saffold',  role:'Member', phone:'' },
+    { name:'Nakia Price',      role:'Member', phone:'' },
+    { name:'Gary Offutt',      role:'Member', phone:'' },
+    { name:'Jalen',            role:'Member', phone:'' },
+    { name:'Queenasia Tyler',  role:'Member', phone:'' },
+    { name:'Alfie McGinty',    role:'Member', phone:'' },
+    { name:'Lacy Tyler',       role:'Member', phone:'' },
+    { name:'India Tyler',      role:'Member', phone:'' },
+    { name:'Pookie Tyler',     role:'Member', phone:'' },
+    { name:'Dwayne Tyler',    role:'Member', phone:'' },
+  ];
+  const REUNION_TARGET = new Date('2027-06-01T00:00:00'); // change to the Friday once dates are set
+
+  /* ---- nav: scroll style, mobile menu, active link ---- */
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('menuToggle');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+  }));
+  const links = [...document.querySelectorAll('#navLinks a:not(.pay-btn)')];
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+
+  /* ---- committee cards ---- */
+  (function renderCommittee(){
+    const esc = t => t.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const card = m => {
+      const initials = m.name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
+      const digits = m.phone.replace(/\D/g,'');
+      const phone = digits
+        ? `<a class="phone" href="tel:${digits}">📞 ${esc(m.phone)}</a>`
+        : `<span class="phone soon">Number coming soon</span>`;
+      return `<div class="member"><div class="avatar">${esc(initials)}</div><div class="name">${esc(m.name)}</div><div class="role">${esc(m.role)}</div>${phone}</div>`;
+    };
+    document.getElementById('officers').innerHTML = COMMITTEE.filter(m => m.officer).map(card).join('');
+    document.getElementById('committeeList').innerHTML = COMMITTEE.filter(m => !m.officer).map(card).join('');
+  })();
+
+  /* ---- countdown to June 2027 ---- */
+  (function countdown(){
+    const ms = REUNION_TARGET - new Date();
+    const days = Math.max(0, Math.ceil(ms / 86400000));
+    document.getElementById('cdDays').textContent = days.toLocaleString();
+    document.getElementById('cdWeeks').textContent = Math.floor(days / 7);
+    document.getElementById('cdMonths').textContent = Math.floor(days / 30.44);
+  })();
+
+  /* ---- reveal on scroll ---- */
+  const revealer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); revealer.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => revealer.observe(el));
+
+  /* ---- fundraising bar (percent only) ---- */
+  const pct = Math.max(0, Math.min(100, Math.round(FUND_PERCENT)));
+  const bar = document.getElementById('bar');
+  const fill = document.getElementById('barFill');
+  const num = document.getElementById('pctNum');
+  let animated = false;
+  new IntersectionObserver(([e], obs) => {
+    if (!e.isIntersecting || animated) return;
+    animated = true; obs.disconnect();
+    fill.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', pct);
+    const start = performance.now(), dur = 1800;
+    (function tick(t){
+      const p = Math.min(1, (t - start) / dur);
+      num.textContent = Math.round(pct * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+    document.querySelectorAll('.milestone').forEach(m => m.classList.toggle('hit', pct >= +m.dataset.at));
+  }, {threshold:.4}).observe(bar);
+</script>
+</body>
+</html>
