@@ -741,7 +741,7 @@
     <span class="eyebrow reveal">The Committee</span>
     <h2 class="h2 reveal">The Folks <span class="script">Making It Happen</span></h2>
     <p class="lead reveal">Questions about dues, the weekend or anything else? Reach out to anyone on the committee. We're here to help.</p>
-    <p class="lock-note reveal">🔒 Phone numbers are for family only. Tap <b>See Number</b> and enter the family code.</p>
+    <p class="lock-note reveal" id="lockNote" aria-live="polite">🔒 Phone numbers are for family only. Tap <b>See Number</b> and enter the family code.</p>
     <div class="officers reveal" id="officers"></div>
     <div class="committee reveal" id="committeeList"></div>
   </div>
@@ -813,7 +813,7 @@
   const FUND_PERCENT = 28;
   /* COMMITTEE: add phone numbers as 'phone' (e.g. '317-555-1234').
      Leave phone empty ('') to show "Number coming soon". officer:true = top row. Members are sorted A-Z by first name automatically.
-     PHONE CODE: numbers are hidden until someone enters the family code. The code is always the
+     PHONE CODE: numbers are hidden until someone enters the family code, then show for UNLOCK_MINUTES. The code is always the
      upcoming reunion year and switches automatically every July 1 (e.g. 2027 until June 30, 2027,
      then 2028). Nothing to update each year. */
   const COMMITTEE = [
@@ -857,9 +857,19 @@
 
   /* ---- committee cards (numbers locked behind the family code) ---- */
   const familyCode = (d = new Date()) => String(d.getMonth() >= 6 ? d.getFullYear() + 1 : d.getFullYear()); // July (6) onward = next year
-  const UNLOCK_KEY = 'tt-family-code';
-  const isUnlocked = () => { try { return localStorage.getItem(UNLOCK_KEY) === familyCode(); } catch (e) { return window.__ttUnlocked === familyCode(); } };
-  const rememberUnlock = () => { window.__ttUnlocked = familyCode(); try { localStorage.setItem(UNLOCK_KEY, familyCode()); } catch (e) {} };
+  const UNLOCK_MINUTES = 2; // numbers lock again after this long (a page reload also locks them)
+  const LOCKED_NOTE = document.getElementById('lockNote').innerHTML;
+  let unlockedUntil = 0, unlockTimer = null;
+  const isUnlocked = () => Date.now() < unlockedUntil;
+  const tickUnlock = () => {
+    const left = Math.max(0, Math.ceil((unlockedUntil - Date.now()) / 1000));
+    if (!left) { clearInterval(unlockTimer); unlockedUntil = 0; renderCommittee(); return; }
+    document.getElementById('lockNote').innerHTML = `🔓 Numbers showing. They'll lock again in <b>${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</b>.`;
+  };
+  const rememberUnlock = () => {
+    unlockedUntil = Date.now() + UNLOCK_MINUTES * 60000;
+    clearInterval(unlockTimer); unlockTimer = setInterval(tickUnlock, 1000);
+  };
   function renderCommittee(){
     const esc = t => t.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const card = m => {
@@ -874,7 +884,7 @@
     };
     document.getElementById('officers').innerHTML = COMMITTEE.filter(m => m.officer).map(card).join('');
     document.getElementById('committeeList').innerHTML = COMMITTEE.filter(m => !m.officer).sort((a, b) => a.name.localeCompare(b.name)).map(card).join('');
-    document.querySelector('.lock-note').hidden = isUnlocked();
+    if (isUnlocked()) tickUnlock(); else document.getElementById('lockNote').innerHTML = LOCKED_NOTE;
   }
   renderCommittee();
 
