@@ -334,6 +334,7 @@
   .installments{margin-top:22px;padding-top:20px;border-top:2px dashed rgba(255,255,255,.45);display:flex;flex-direction:column;align-items:center;gap:6px}
   .installments b{font-family:'Alfa Slab One';font-weight:400;font-size:1.15rem;color:var(--gold-light);letter-spacing:.02em}
   .installments span{font-size:.98rem}
+  .installments .example{font-size:.88rem;font-style:italic;opacity:.9}
   .btn-outline{margin-top:8px;background:transparent;color:#fff;box-shadow:0 0 0 2px #fff inset;padding:11px 22px;font-size:.92rem}
   .btn-outline:hover{background:#fff;color:var(--red)}
   .cashtag{display:block;margin-top:14px;font-weight:800;color:#fff;opacity:.95}
@@ -375,10 +376,35 @@
   .member .role{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9b7a5c}
   .member .phone{margin-top:8px;font-weight:800;font-size:.95rem;color:var(--red);text-decoration:none}
   .member .phone.soon{color:#b9a58c;font-weight:700;font-size:.85rem}
+  .lock-note{margin:10px auto 0;font-weight:700;color:var(--maroon);font-size:.98rem}
+  .reveal-btn{
+    margin-top:8px;border:2px dashed #d9bb8f;background:var(--cream);color:var(--maroon);cursor:pointer;
+    font-family:'Nunito';font-weight:800;font-size:.85rem;padding:6px 14px;border-radius:999px;transition:border-color .2s,color .2s;
+  }
+  .reveal-btn:hover,.reveal-btn:focus-visible{border-color:var(--red);color:var(--red);outline:none}
+  .code-dialog{
+    margin:auto;border:0;border-radius:24px;padding:0;width:min(400px,calc(100% - 32px));
+    background:var(--cream);color:var(--ink);box-shadow:0 30px 60px -15px rgba(0,0,0,.6);
+  }
+  .code-dialog::backdrop{background:rgba(40,12,6,.65);backdrop-filter:blur(3px)}
+  .code-dialog form{padding:32px 28px 26px;text-align:center;border:3px solid var(--maroon);border-radius:24px}
+  .code-dialog .lock-ico{font-size:2.2rem;line-height:1}
+  .code-dialog h3{font-family:'Rye';font-size:1.7rem;color:var(--maroon);margin-top:6px}
+  .code-dialog p{margin-top:6px}
+  .code-dialog input{
+    margin-top:18px;width:100%;padding:14px;border-radius:14px;border:3px solid #e3c9a4;background:#fff;
+    font-family:'Alfa Slab One';font-size:1.6rem;letter-spacing:.3em;text-align:center;color:var(--maroon);
+  }
+  .code-dialog input:focus{outline:none;border-color:var(--red)}
+  .code-error{min-height:1.4em;color:var(--red);font-weight:800;font-size:.92rem}
+  .code-actions{display:flex;gap:12px;justify-content:center;margin-top:8px}
+  .code-actions .btn{padding:12px 22px;font-size:.92rem}
+  .code-hint{font-size:.85rem;color:#8a5a3a;margin-top:16px!important}
+  .shake{animation:shake .35s}
+  @keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-4px)}}
   .officers .member{border:3px solid var(--red);padding:28px 18px 24px}
   .officers .avatar{width:78px;height:78px;font-size:1.6rem;background:var(--red)}
   .officers .role{color:#fff;background:var(--red);padding:3px 12px;border-radius:999px;letter-spacing:.12em}
-  .more-soon{margin-top:26px;font-weight:700;color:var(--maroon)}
 
   /* ---------- memories ---------- */
   .memories{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
@@ -679,7 +705,12 @@
             <span>Pay toward your dues in pieces, like $20 a month for 4 months.</span>
             <a href="https://cash.app/pay/link/mz62atg9" target="_blank" rel="noopener" class="btn btn-outline">Make a Payment</a>
           </div>
-          <span class="cashtag">or send to <a href="https://cash.app/$Tytireunion" target="_blank" rel="noopener">$Tytireunion</a> · please put your name in the note</span>
+          <div class="installments">
+            <b>Paying for more than one person, or a guest?</b>
+            <span>Use our Cash App and type in your total: <strong>$80 for each family member</strong>, plus <strong>$25 for each returning guest</strong>. Put everyone's names in the note so we can credit each person.</span>
+            <span class="example">Example: 2 family members + 1 returning guest = $185</span>
+            <a href="https://cash.app/$Tytireunion" target="_blank" rel="noopener" class="btn btn-outline">Pay for Multiple People</a>
+          </div>
           <div class="no-cashapp">
             <b>No Cash App? No problem.</b>
             <span>Find a family member who has Cash App and send them your dues any way they'll accept. They'll send it to Cash App for you. Just make sure your name is on it!</span>
@@ -696,7 +727,7 @@
         </div>
         <div class="rule">
           <div class="badge paid">$25</div>
-          <div><b>Second time attending</b><span>Guests coming back a second time pay $25.</span></div>
+          <div><b>Second time attending</b><span>Guests coming back a second time pay $25. Use the <strong>Pay for Multiple People</strong> button to add it to your payment.</span></div>
         </div>
         <p class="guest-foot">Questions about bringing someone? Message us on <a href="https://www.facebook.com/tyler.tinsley.376" target="_blank" rel="noopener">Facebook</a>.</p>
       </div>
@@ -710,11 +741,26 @@
     <span class="eyebrow reveal">The Committee</span>
     <h2 class="h2 reveal">The Folks <span class="script">Making It Happen</span></h2>
     <p class="lead reveal">Questions about dues, the weekend or anything else? Reach out to anyone on the committee. We're here to help.</p>
+    <p class="lock-note reveal">🔒 Phone numbers are for family only. Tap <b>See Number</b> and enter the family code.</p>
     <div class="officers reveal" id="officers"></div>
     <div class="committee reveal" id="committeeList"></div>
-    <p class="more-soon reveal">More committee members coming soon!</p>
   </div>
 </section>
+
+<dialog class="code-dialog" id="codeDialog" aria-labelledby="codeTitle">
+  <form id="codeForm" novalidate>
+    <div class="lock-ico" aria-hidden="true">🔒</div>
+    <h3 id="codeTitle">Family Code</h3>
+    <p>Committee phone numbers are for family only. Enter the family code to see them.</p>
+    <input id="codeInput" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="····" aria-label="Family code" aria-describedby="codeError">
+    <p class="code-error" id="codeError" role="alert"></p>
+    <div class="code-actions">
+      <button type="button" class="btn btn-cream" id="codeCancel">Cancel</button>
+      <button type="submit" class="btn btn-red">Unlock</button>
+    </div>
+    <p class="code-hint">Don't know the code? Ask any family member or message us on Facebook.</p>
+  </form>
+</dialog>
 
 <!-- ============ MEMORIES ============ -->
 <div class="scallop"></div>
@@ -764,9 +810,12 @@
      Only the percentage is ever shown on the site.
      (Math: amount raised ÷ goal × 100, rounded. Keep dollar amounts OUT of this file.)
      ========================================================== */
-  const FUND_PERCENT = 26;
+  const FUND_PERCENT = 28;
   /* COMMITTEE: add phone numbers as 'phone' (e.g. '317-555-1234').
-     Leave phone empty ('') to show "Number coming soon". officer:true = top row. Members are sorted A-Z by first name automatically. */
+     Leave phone empty ('') to show "Number coming soon". officer:true = top row. Members are sorted A-Z by first name automatically.
+     PHONE CODE: numbers are hidden until someone enters the family code. The code is always the
+     upcoming reunion year and switches automatically every July 1 (e.g. 2027 until June 30, 2027,
+     then 2028). Nothing to update each year. */
   const COMMITTEE = [
     { name:'Amariah Brown',    role:'CEO',    phone:'317-313-6409', officer:true },
     { name:'Lauran Offutt',    role:'COO',    phone:'317-985-5407', officer:true },
@@ -806,20 +855,50 @@
   }, {rootMargin:'-45% 0px -50% 0px'});
   document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
 
-  /* ---- committee cards ---- */
-  (function renderCommittee(){
+  /* ---- committee cards (numbers locked behind the family code) ---- */
+  const familyCode = (d = new Date()) => String(d.getMonth() >= 6 ? d.getFullYear() + 1 : d.getFullYear()); // July (6) onward = next year
+  const UNLOCK_KEY = 'tt-family-code';
+  const isUnlocked = () => { try { return localStorage.getItem(UNLOCK_KEY) === familyCode(); } catch (e) { return window.__ttUnlocked === familyCode(); } };
+  const rememberUnlock = () => { window.__ttUnlocked = familyCode(); try { localStorage.setItem(UNLOCK_KEY, familyCode()); } catch (e) {} };
+  function renderCommittee(){
     const esc = t => t.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const card = m => {
       const initials = m.name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
       const digits = m.phone.replace(/\D/g,'');
-      const phone = digits
-        ? `<a class="phone" href="tel:${digits}">📞 ${esc(m.phone)}</a>`
-        : `<span class="phone soon">Number coming soon</span>`;
+      const phone = !digits
+        ? `<span class="phone soon">Number coming soon</span>`
+        : isUnlocked()
+          ? `<a class="phone" href="tel:${digits}">📞 ${esc(m.phone)}</a>`
+          : `<button type="button" class="reveal-btn" data-unlock>🔒 See Number</button>`;
       return `<div class="member"><div class="avatar">${esc(initials)}</div><div class="name">${esc(m.name)}</div><div class="role">${esc(m.role)}</div>${phone}</div>`;
     };
     document.getElementById('officers').innerHTML = COMMITTEE.filter(m => m.officer).map(card).join('');
     document.getElementById('committeeList').innerHTML = COMMITTEE.filter(m => !m.officer).sort((a, b) => a.name.localeCompare(b.name)).map(card).join('');
-  })();
+    document.querySelector('.lock-note').hidden = isUnlocked();
+  }
+  renderCommittee();
+
+  const codeDialog = document.getElementById('codeDialog');
+  const codeInput = document.getElementById('codeInput');
+  const codeError = document.getElementById('codeError');
+  document.getElementById('committee').addEventListener('click', e => {
+    if (!e.target.closest('[data-unlock]')) return;
+    codeInput.value = ''; codeError.textContent = '';
+    codeDialog.showModal(); codeInput.focus();
+  });
+  document.getElementById('codeCancel').addEventListener('click', () => codeDialog.close());
+  codeDialog.addEventListener('click', e => { if (e.target === codeDialog) codeDialog.close(); });
+  document.getElementById('codeForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (codeInput.value.trim() === familyCode()) {
+      rememberUnlock(); renderCommittee(); codeDialog.close();
+      document.querySelector('#officers .phone')?.focus();
+    } else {
+      codeError.textContent = "That's not the code. Ask a family member for it.";
+      const f = e.target; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+      codeInput.select();
+    }
+  });
 
   /* ---- countdown to June 2027 ---- */
   (function countdown(){
